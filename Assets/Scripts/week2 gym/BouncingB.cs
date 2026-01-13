@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FirstScript : MonoBehaviour
+public class BouncingB : MonoBehaviour
 {
     public float speed = 0.01f;
 
@@ -13,8 +13,9 @@ public class FirstScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Vector2 newPosition = transform.position;
-        
+
         newPosition.x += speed;
 
         transform.position = newPosition;
@@ -24,6 +25,9 @@ public class FirstScript : MonoBehaviour
         if (screenPosition.x >= Screen.width | screenPosition.x <= 0)
         {
             speed *= -1;
+
         }
+
+
     }
 }
