@@ -20,5 +20,6 @@ public class Pulse : MonoBehaviour
             t = 0;
         }
         transform.localScale = Vector3.one * curve.Evaluate(t);    
+        // :)
     }
 }
