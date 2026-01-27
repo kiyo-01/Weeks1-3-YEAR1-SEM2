@@ -7,7 +7,7 @@ public class BallLerp : MonoBehaviour
     public float t;
     public AnimationCurve explosive;
     bool oneWay = true;
-    Vector3 initialSize;
+    Vector2 initialSize;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,9 +29,12 @@ public class BallLerp : MonoBehaviour
             if (t <= 0) oneWay = true; //reach player, switch direction
         }
         
+        Vector2 stopZ = Vector2.Lerp(player.position, opponent.position, explosive.Evaluate(t));
+
         //set position as new values
-        transform.position = Vector2.Lerp(player.position, opponent.position, explosive.Evaluate(t));
+        transform.position = new Vector3(stopZ.x, stopZ.y, transform.position.z);
       
+        
         //lerp localscale value simultaneously with movement
         transform.localScale = Vector3.Lerp(initialSize, initialSize * 0.25f, t);
     }
